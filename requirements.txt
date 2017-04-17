@@ -1,0 +1,15 @@
+aiohttp==1.0.5
+async-timeout==1.2.0
+cffi==1.6.0
+chardet==3.0.2
+discord.py==0.16.7
+multidict==2.1.4
+oauthlib==1.1.1
+pycparser==2.17
+PyNaCl==1.0.1
+requests==2.10.0
+requests-oauthlib==0.6.1
+six==1.10.0
+virtualenv==15.1.0
+websockets==3.3
+
