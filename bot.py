@@ -80,7 +80,7 @@ async def restart(ctx):
 async def reac(ctx, message : str):
     m_id = str(ctx.message.id)
     m_channel = ctx.message.channel
-    m_del = await bot.get_message(m_channel,m_id)
+    m_del = await client.get_message(m_channel,m_id)
     try:
         picpath = "reactions/" + message + ".png"
         await client.send_file(ctx.message.channel, picpath)
