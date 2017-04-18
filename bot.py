@@ -78,8 +78,9 @@ async def restart(ctx):
 
 @client.command(description="Use a reaction pic", pass_context=True)
 async def reac(ctx, message : str):
-    m_id = ctx.message.id
-    m_del = client.get_message(m_id)
+    m_id = str(ctx.message.id)
+    m_channel = ctx.message.channel
+    m_del = await bot.get_message(m_channel,m_id)
     try:
         picpath = "reactions/" + message + ".png"
         await client.send_file(ctx.message.channel, picpath)
