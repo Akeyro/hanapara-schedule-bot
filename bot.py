@@ -144,7 +144,7 @@ async def schedule():
     st1_trigger = 0
     st2_trigger = 0
     role = str("Dumb People")
-    getrole = discord.utils.get(hanapara_serv.roles, name=role)
+    getrole = discord.utils.get(m_server.roles, name=role)
     role_mention = getrole.mention
     while not client.is_closed:
         now = datetime.now()
