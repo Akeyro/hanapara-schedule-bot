@@ -15,7 +15,7 @@ os.chdir(bot_dir)
 client.pm_help = True
 
 general_channel = discord.Object(id='246519048559394817')
-server_id = '246519048559394817'
+hanapara_serv = client.get_server('246519048559394817')
 
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
@@ -137,7 +137,7 @@ async def schedule():
     twtr_trigger = 1
     st1_trigger = 0
     st2_trigger = 0
-    getrole = discord.utils.get(m_server.roles, name="Dumb People")
+    getrole = discord.utils.get(hanapara_serv.roles, name="Dumb People")
     role_mention = getrole.mention
     while not client.is_closed:
         now = datetime.now()
