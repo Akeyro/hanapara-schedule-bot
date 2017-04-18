@@ -56,13 +56,13 @@ Strike times are at :
 async def bl(ctx):
     msg = "\U0001F440"
     await client.say(msg) 
-    await client.send_file(ctx.message.channel, "reactions\homo.gif")
+    await client.send_file(ctx.message.channel, "reactions/homo.gif")
 
 @client.command(description="When the thinking is strong",pass_context=True)
 async def rotathinking(ctx):
     msg = "\U0001F914"
     await client.say(msg) 
-    await client.send_file(ctx.message.channel, "reactions\\tenor.gif")
+    await client.send_file(ctx.message.channel, "reactions/tenor.gif")
 
 @client.command(description="Restarts the bot", pass_context=True)
 async def restart(ctx):
@@ -79,7 +79,7 @@ async def restart(ctx):
 @client.command(description="Use a reaction pic", pass_context=True)
 async def reac(ctx, message : str):
     try:
-        picpath = "reactions\\" + message + ".png"
+        picpath = "reactions/" + message + ".png"
         await client.send_file(ctx.message.channel, picpath)
     except FileNotFoundError:
         await client.say("I can't find what you're looking for")
@@ -88,7 +88,7 @@ async def reac(ctx, message : str):
 async def reaclist(ctx):
     m_author = ctx.message.author
     reac_list=[]
-    for name in os.listdir(".\\reactions\\"):
+    for name in os.listdir("./reactions/"):
         if name.endswith(".png"):
             reac_list.append(os.path.splitext(name)[0])
     sort_list = list(chunks(reac_list, 80))
