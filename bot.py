@@ -112,7 +112,7 @@ async def addrole(ctx, *, message : str):
             await client.say("Successfuly added you to the role {} !".format(roleadd))
     except AttributeError:
         await client.say("There is no such role")
-    except Forbidden :
+    except FORBIDDEN :
         await client.say("You don't have the permission to get this role, but you have the permission to give me cake !")
 
 @client.command(description="Remove a role from the user",pass_context=True)
@@ -130,7 +130,7 @@ async def remrole(ctx, *, message : str):
             await client.say("Successfuly removed you from the role {} !".format(rolerem))
     except AttributeError:
         await client.say("There is no such role")
-    except Forbidden :
+    except FORBIDDEN :
         await client.say("You don't have the permission to remove this role")
 
 #Scheduler --------------------------------
