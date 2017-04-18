@@ -15,6 +15,7 @@ os.chdir(bot_dir)
 client.pm_help = True
 
 hanapara_server = 0
+general_channel = 0
 
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
@@ -31,6 +32,8 @@ async def on_ready():
     print('------')
     await client.change_presence(game=discord.Game(name='Jed Bullying Simulator'))
     global hanapara_server
+    global general_channel
+    general_channel = client.get_channel(id='246519048559394817')
     hanapara_server = client.get_server(id='246519048559394817')
 
 @client.command(description="Check if the bot is active")
@@ -138,7 +141,7 @@ async def startsch(ctx):
 #Scheduler --------------------------------
 async def schedule():
     await client.wait_until_login()
-    twtr = 20
+    twtr = 
     st1 = 22
     st2 = 3
     twtr_trigger = 1
