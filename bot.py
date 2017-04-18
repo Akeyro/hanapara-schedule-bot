@@ -9,7 +9,7 @@ import pprint
 
 description = "Sarasa bot for Hanapara, please give me plenty of cake !"
 client = commands.Bot(command_prefix='$', description=description, )
-bot_dir = "."
+bot_dir = "/app/"
 os.chdir(bot_dir)
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 bot_path = os.path.join(ROOT_PATH, "bot.py")
