@@ -79,11 +79,15 @@ async def restart(ctx):
 @client.command(description="Use a reaction pic", pass_context=True)
 async def reac(ctx, message : str):
     m_id = str(ctx.message.id)
+    m_author = ctx.message.author
+    m_author_mention = m_author.mention
     m_channel = ctx.message.channel
     m_del = await client.get_message(m_channel,m_id)
     try:
         picpath = "reactions/" + message + ".png"
+        await client.say(m_author_mention)
         await client.send_file(ctx.message.channel, picpath)
+        await asyncio.sleep(5)
         await client.delete_message(m_del)
     except FileNotFoundError:
         await client.say("I can't find what you're looking for")
