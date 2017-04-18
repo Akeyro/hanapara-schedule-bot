@@ -192,5 +192,5 @@ async def schedule():
         await asyncio.sleep(300) #Check every 5 minutes
 #End of scheduler -----------------------------------------------------
 
-await client.loop.create_task(schedule())
+client.loop.create_task(schedule())
 client.run('MzAyMTY3NzUyNjU4MTI0ODAw.C9XVng.LvmGVT9N_i2q5s2LgSquOmBN-JY')
