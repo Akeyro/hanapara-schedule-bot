@@ -13,8 +13,6 @@ bot_dir = "/app/"
 os.chdir(bot_dir)
 
 client.pm_help = True
-m_server = 0
-general_channel = client.get_channel(id='246519048559394817')
 
 
 def chunks(l, n):
@@ -31,6 +29,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
     await client.change_presence(game=discord.Game(name='Jed Bullying Simulator'))
+    hanapara_server = client.get_server(id='246519048559394817')
 
 @client.command(description="Check if the bot is active")
 async def active():
@@ -144,7 +143,7 @@ async def schedule():
     st1_trigger = 0
     st2_trigger = 0
     role = str("Dumb People")
-    getrole = discord.utils.get(m_server.roles, name=role)
+    getrole = discord.utils.get(hanapara_server.roles, name=role)
     role_mention = getrole.mention
     while not client.is_closed:
         now = datetime.now()
