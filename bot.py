@@ -20,17 +20,6 @@ def chunks(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]
 
-
-@client.event
-async def on_ready():
-    await client.wait_until_ready()
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-    await client.change_presence(game=discord.Game(name='Jed Bullying Simulator'))
-    hanapara_server = client.get_server(id='246519048559394817')
-
 @client.command(description="Check if the bot is active")
 async def active():
     print("Command received")
@@ -183,4 +172,14 @@ async def schedule():
         await asyncio.sleep(300) #Check every 5 minutes
 #End of scheduler -----------------------------------------------------
 
+@client.event
+async def on_ready():
+    await client.wait_until_ready()
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
+    await client.change_presence(game=discord.Game(name='Jed Bullying Simulator'))
+    hanapara_server = client.get_server(id='246519048559394817')
+    
 client.run('MzAyMTY3NzUyNjU4MTI0ODAw.C9XVng.LvmGVT9N_i2q5s2LgSquOmBN-JY')
