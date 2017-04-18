@@ -11,6 +11,9 @@ description = "Sarasa bot for Hanapara, please give me plenty of cake !"
 client = commands.Bot(command_prefix='$', description=description, )
 bot_dir = "."
 os.chdir(bot_dir)
+ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+bot_path = os.path.join(ROOT_PATH, "bot.py")
+print(str(bot_path))
 client.pm_help = True
 
 general_channel = discord.Object(id='246519048559394817')
@@ -126,9 +129,9 @@ async def remrole(ctx, *, message : str):
 #Scheduler --------------------------------
 async def schedule():
     await client.wait_until_login()
-    twtr = 21
-    st1 = 0
-    st2 = 5
+    twtr = 19
+    st1 = 22
+    st2 = 3
     twtr_trigger = 1
     st1_trigger = 0
     st2_trigger = 0
@@ -140,7 +143,7 @@ async def schedule():
         if actual_hour == (twtr-1):
             twtr_trigger = 1
 
-        if actual_hour == 23:
+        if actual_hour == (st1-1):
             st1_trigger = 1
 
         if actual_hour == (st2-1):
