@@ -129,8 +129,9 @@ async def remrole(ctx, *, message : str):
         await client.say("You don't have the permission to remove this role")
 
 @client.command(description="Launch the scheduler", pass_context=True)
-async def startsch():
+async def startsch(ctx):
     m_server = ctx.message.server
+    await client.say("Starting the scheduler !")
     await client.loop.create_task(schedule())
 
 #Scheduler --------------------------------
