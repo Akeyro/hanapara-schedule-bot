@@ -29,8 +29,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
     await client.change_presence(game=discord.Game(name='Jed Bullying Simulator'))
-    hanapara_server = client.get_server(id='246519048559394817')
-    return hanapara_server
+    global hanapara_server = client.get_server(id='246519048559394817')
 
 @client.command(description="Check if the bot is active")
 async def active():
@@ -144,8 +143,7 @@ async def schedule():
     st1_trigger = 0
     st2_trigger = 0
     role = str("Dumb People")
-    getserver = on_ready()
-    getrole = discord.utils.get(getserver.roles, name=role)
+    getrole = discord.utils.get(hanapara_server.roles, name=role)
     role_mention = getrole.mention
     while not client.is_closed:
         now = datetime.now()
