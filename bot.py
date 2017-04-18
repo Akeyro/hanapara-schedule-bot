@@ -13,7 +13,7 @@ bot_dir = "/app/"
 os.chdir(bot_dir)
 dirs = os.listdir('./')
 for x in dirs:
-   print x
+   print(x)
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 bot_path = os.path.join(ROOT_PATH, "bot.py")
 print(str(bot_path))
