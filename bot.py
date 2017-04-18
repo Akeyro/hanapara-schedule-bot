@@ -87,7 +87,7 @@ async def reac(ctx, message : str):
         picpath = "reactions/" + message + ".png"
         await client.say(m_author_mention)
         await client.send_file(ctx.message.channel, picpath)
-        await asyncio.sleep(5)
+        await asyncio.sleep(3)
         await client.delete_message(m_del)
     except FileNotFoundError:
         await client.say("I can't find what you're looking for")
