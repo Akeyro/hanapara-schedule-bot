@@ -141,7 +141,7 @@ async def startsch(ctx):
 #Scheduler --------------------------------
 async def schedule():
     await client.wait_until_login()
-    twtr = 
+    twtr = 20
     st1 = 22
     st2 = 3
     twtr_trigger = 1
