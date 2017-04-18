@@ -14,7 +14,7 @@ os.chdir(bot_dir)
 
 client.pm_help = True
 
-general_channel = discord.Object(id='246519048559394817')
+general_channel = client.get_channel(id='246519048559394817')
 hanapara_serv = general_channel.server
 
 def chunks(l, n):
