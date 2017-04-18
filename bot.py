@@ -137,6 +137,8 @@ async def schedule():
     twtr_trigger = 1
     st1_trigger = 0
     st2_trigger = 0
+    getrole = discord.utils.get(m_server.roles, name="Dumb People")
+    role_mention = getrole.mention
     while not client.is_closed:
         now = datetime.now()
         actual_hour = now.hour
@@ -152,17 +154,17 @@ async def schedule():
             st2_trigger = 1
 
         if actual_hour == st1 and st1_trigger == 1:
-            st1_msg = "@Dumb People It's strike time, butcher those raids !"
+            st1_msg = "{} It's strike time, butcher those raids !".format(role_mention)
             await client.send_message(general_channel, st1_msg)
             st1_trigger = 0
 
         elif actual_hour == st2 and st2_trigger == 1:
-            st2_msg = "@Dumb People It's strike time, butcher those raids !"
+            st2_msg = "{} It's strike time, butcher those raids !".format(role_mention)
             await client.send_message(general_channel, st2_msg)
             st2_trigger = 0
 
         elif actual_hour == twtr and twtr_trigger == 1:
-            twtr_msg = "@Dumb People Do not forget to use your daily Twitter refresh !"
+            twtr_msg = "{} Do not forget to use your daily Twitter refresh and to buy your daily thingies ! (And my cake too !!!)".format(role_mention)
             await client.send_message(general_channel, twtr_msg)
             twtr_trigger = 0
 
