@@ -133,7 +133,7 @@ async def remrole(ctx, *, message : str):
     except :
         await client.say("You don't have the permission to remove this role")
 
-def is_me():
+def is_me(m):
     return m.author == client.user
 
 @client.command(description="Purge all the messages from the bot on the channel", pass_context=True)
