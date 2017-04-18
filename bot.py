@@ -11,12 +11,7 @@ description = "Sarasa bot for Hanapara, please give me plenty of cake !"
 client = commands.Bot(command_prefix='$', description=description, )
 bot_dir = "/app/"
 os.chdir(bot_dir)
-dirs = os.listdir('./')
-for x in dirs:
-   print(x)
-ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-bot_path = os.path.join(ROOT_PATH, "bot.py")
-print(str(bot_path))
+
 client.pm_help = True
 
 general_channel = discord.Object(id='246519048559394817')
@@ -112,7 +107,7 @@ async def addrole(ctx, *, message : str):
             await client.say("Successfuly added you to the role {} !".format(roleadd))
     except AttributeError:
         await client.say("There is no such role")
-    except FORBIDDEN :
+    except FORBIDDEN (status code: 403):
         await client.say("You don't have the permission to get this role, but you have the permission to give me cake !")
 
 @client.command(description="Remove a role from the user",pass_context=True)
@@ -130,7 +125,7 @@ async def remrole(ctx, *, message : str):
             await client.say("Successfuly removed you from the role {} !".format(rolerem))
     except AttributeError:
         await client.say("There is no such role")
-    except FORBIDDEN :
+    except FORBIDDEN (status code: 403):
         await client.say("You don't have the permission to remove this role")
 
 #Scheduler --------------------------------
