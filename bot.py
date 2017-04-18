@@ -15,7 +15,7 @@ os.chdir(bot_dir)
 client.pm_help = True
 
 general_channel = discord.Object(id='246519048559394817')
-hanapara_serv = client.get_server('246519048559394817')
+hanapara_serv = general_channel.server
 
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
