@@ -14,6 +14,7 @@ os.chdir(bot_dir)
 
 client.pm_help = True
 
+hanapara_server = 0
 
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
@@ -29,7 +30,8 @@ async def on_ready():
     print(client.user.id)
     print('------')
     await client.change_presence(game=discord.Game(name='Jed Bullying Simulator'))
-    global hanapara_server = client.get_server(id='246519048559394817')
+    global hanapara_server
+    hanapara_server = client.get_server(id='246519048559394817')
 
 @client.command(description="Check if the bot is active")
 async def active():
