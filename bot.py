@@ -157,7 +157,7 @@ async def schedule():
     twtr = 19
     st1 = 22
     st2 = 3
-    twtr_trigger = 1
+    twtr_trigger = 0
     st1_trigger = 0
     st2_trigger = 0
     role = str("Dumb People")
