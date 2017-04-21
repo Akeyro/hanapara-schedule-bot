@@ -12,3 +12,4 @@ requests-oauthlib==0.6.1
 six==1.10.0
 virtualenv==15.1.0
 websockets==3.3
+Pybooru==4.1.0
