@@ -6,7 +6,13 @@ import os
 import sys
 import asyncio
 import pprint
+from pybooru import Danbooru
+from random import randint
+import requests
 
+client_api = str(input("Please enter your API Key:"))
+pic_api = str(input("Please enter your Danbooru API Key:"))
+picbot = Danbooru('danbooru', username='Akeyro', api_key=pic_api)
 description = "Sarasa bot for Hanapara, please give me plenty of cake !"
 client = commands.Bot(command_prefix='$', description=description, )
 bot_dir = "/app/"
@@ -151,6 +157,31 @@ async def purge(ctx):
     deleted = await client.purge_from(m_channel, limit=100, check=is_me)
     await client.send_message(m_channel, 'Deleted {} message(s)'.format(len(deleted)))
 
+
+@client.command(pass_context=True)
+async def safebooru(ctx, message : str):
+    m_channel = ctx.message.channel
+    path = "./"
+    max_limit = 200
+    picture = picbot.post_list(tags=message+" rating:safe", limit=max_limit, random=True)
+    pic_count = len(picture)
+    if pic_count == 0:
+        await client.say("There is no picture with this tag")
+
+    else :
+        random_pic = randint(0, pic_count - 1)
+        picture_link = "https://danbooru.donmai.us/posts/" + str(picture[random_pic]['id'])
+        pic_id = str(picture[random_pic]['id'])
+        pic_show = picbot.post_show(pic_id)
+        pic_url = "https://danbooru.donmai.us" + str(pic_show['file_url'])
+        dl = requests.get(pic_url)
+        with open(path + "pic_temp.jpg", "wb") as f:
+            f.write(dl.content)
+        picpath = "./pic_temp.jpg"
+        print(picture_link)
+        print(pic_url)
+        await client.send_file(ctx.message.channel, picpath)
+
 #Scheduler --------------------------------
 async def schedule():
     await client.wait_until_login()
@@ -201,4 +232,4 @@ async def schedule():
         await asyncio.sleep(300) #Check every 5 minutes
 #End of scheduler -----------------------------------------------------
 
-client.run('MzAyMTY3NzUyNjU4MTI0ODAw.C9XVng.LvmGVT9N_i2q5s2LgSquOmBN-JY')
+client.run(client_api)
